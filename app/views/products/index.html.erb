@@ -5,25 +5,25 @@
     <%= f.submit "検索", class: "btn btn-primary" %>
   <% end %>
 
-  <table class="table">
+  <table class="table table-warning rounded">
     <thead>
-      <tr>
+      <tr class="align-middle">
         <th class="col-1"></th>
-        <th class="col-1">イメージ</th>
-        <th>商品名</th>
-        <th>値段(円)</th>
+        <th class="col-1 align-middle">イメージ</th>
+        <th class="align-middle">商品名</th>
+        <th class="align-middle col-2 text-center">値段(円)</th>
       </tr>
     </thead>
     <% if @items %>
       <% @items.each do |item| %>
         <tbody>
           <tr>
-            <td class="align-middle">
+            <td class="align-middle text-center">
               <%= link_to "保存", saveitems_path(item_code: item['itemCode'], image_url: item['smallImageUrls'][0], url: item['itemUrl'], name: item['itemName'], price: item['itemPrice']), method: :post, class: "btn btn-primary btn-sm" %>
             </td>
-            <td><img src="<%= item['smallImageUrls'][0] %>"></td>
+            <td class="text-center"><img src="<%= item['smallImageUrls'][0] %>"></td>
             <td><a href="<%= item['itemUrl'] %>" target="_blank"><%= item['itemName'] %></a></td>
-            <td class="align-middle"><%= item['itemPrice'] %></td>
+            <td class="align-middle text-center"><%= item['itemPrice'] %></td>
           </tr>
         </tbody>
       <% end %>

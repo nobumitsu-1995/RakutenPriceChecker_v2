@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_093920) do
+ActiveRecord::Schema.define(version: 2021_07_10_142905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "prices", force: :cascade do |t|
+    t.bigint "saveitem_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["saveitem_id"], name: "index_prices_on_saveitem_id"
+    t.index ["user_id"], name: "index_prices_on_user_id"
+  end
 
   create_table "saveitems", force: :cascade do |t|
     t.string "item_code", null: false
@@ -34,5 +44,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_093920) do
     t.index ["uid", "name"], name: "index_users_on_uid_and_name", unique: true
   end
 
+  add_foreign_key "prices", "saveitems"
+  add_foreign_key "prices", "users"
   add_foreign_key "saveitems", "users"
 end

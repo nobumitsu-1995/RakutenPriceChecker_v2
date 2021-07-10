@@ -1,23 +1,24 @@
 <div class="container">
-  <table class="table">
+  <h3 class="my-5 font-weight-bold text-center">保存商品一覧</h3>
+  <table class="table table-warning rounded">
     <thead>
       <tr>
-        <th class="col-1"></th>
-        <th class="col-1">イメージ</th>
-        <th>商品名</th>
-        <th>値段(円)</th>
+        <th class="col-2 text-center align-middle">価格チェック</th>
+        <th class="col-1 align-middle">イメージ</th>
+        <th class="align-middle">商品名</th>
+        <th class="align-middle col-2 text-center">値段(円)</th>
       </tr>
     </thead>
     <% if @items %>
       <% @items.each do |item| %>
         <tbody>
           <tr>
-            <td class="align-middle">
+            <td class="align-middle text-center">
               <%= link_to "価格チェック", saveitem_path(item), class: "btn btn-primary btn-sm" %>
             </td>
-            <td><img src="<%= item.image_url %>"></td>
+            <td class="text-center"><img src="<%= item.image_url %>"></td>
             <td><a href="<%= item.url %>" target="_blank"><%= item.name %></a></td>
-            <td class="align-middle">2000</td>
+            <td class="align-middle text-center"><%= Price.get_price(item, current_user) %></td>
           </tr>
         </tbody>
       <% end %>

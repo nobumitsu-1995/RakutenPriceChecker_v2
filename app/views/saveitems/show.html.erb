@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="my-5 d-flex align-items-center">
+    <img src="<%= @saveitem.image_url %>" class="mr-3">
+    <a href="<%= @saveitem.url %>" target="_blank"><%= @saveitem.name %></a>
+    <%= link_to "削除", saveitem_path(@saveitem), method: :delete, class: "btn btn-danger btn-sm ml-3" %>
+  </div>
+  <%= line_chart @datas, width: "100%", height: "500px" %>
+</div>

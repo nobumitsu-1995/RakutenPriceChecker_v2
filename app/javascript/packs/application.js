@@ -10,6 +10,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "bootstrap"
 import "bootstrap/scss/bootstrap.scss"
 
+import "chartkick/chart.js"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

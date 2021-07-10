@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-color: #ddd !important;
+}
+.navbar{
+  height: 56px;
+}
+.navbar-brand{
+  padding: 0px !important;
+  height: 56px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.navbar-nav{
+  position: absolute;
+  right: 0;
+}
