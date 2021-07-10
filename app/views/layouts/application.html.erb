@@ -14,11 +14,17 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <%= link_to_if logged_in?, "RPC", root_path, class: "navbar-brand" %>
+          <%= link_to_if logged_in?, "RPC", saveitems_path, class: "navbar-brand" %>
           <% if logged_in? %>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <span class="navbar-text"><%= current_user.name %></span>
+              </li>
+              <li class="nav-item">
+                <%= link_to "商品検索", products_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "保存商品一覧", saveitems_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
                 <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %>

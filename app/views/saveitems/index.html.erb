@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-1"></th>
+        <th class="col-1">イメージ</th>
+        <th>商品名</th>
+        <th>値段(円)</th>
+      </tr>
+    </thead>
+    <% if @items %>
+      <% @items.each do |item| %>
+        <tbody>
+          <tr>
+            <td class="align-middle">
+              <%= link_to "価格チェック", saveitem_path(item), class: "btn btn-primary btn-sm" %>
+            </td>
+            <td><img src="<%= item.image_url %>"></td>
+            <td><a href="<%= item.url %>" target="_blank"><%= item.name %></a></td>
+            <td class="align-middle">2000</td>
+          </tr>
+        </tbody>
+      <% end %>
+    <% end %>
+  </table>
+</div>
