@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#top'
+  root 'products#index'
   resources :saveitems, only: %i[index show create destroy]
   resources :products, only: %i[index]
 

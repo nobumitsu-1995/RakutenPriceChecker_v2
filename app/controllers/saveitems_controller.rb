@@ -1,10 +1,10 @@
 class SaveitemsController < ApplicationController
-  before_action :set_saveitem, only: [:show, :destroy]
   def index
     @items = Saveitem.where(user_id: current_user.id)
   end
 
   def show
+    @saveitem = Saveitem.find(params[:id])
     @datas = Price.set_datas(current_user, @saveitem)
   end
 
@@ -19,15 +19,12 @@ class SaveitemsController < ApplicationController
   end
 
   def destroy
+    @saveitem = current_user.saveitem.find(params[:id])
     @saveitem.destroy
     redirect_to saveitems_path, notice: "商品情報を削除しました。"
   end
 
   private
-
-  def set_saveitem
-    @saveitem = Saveitem.find(params[:id])
-  end
 
   def saveitem_params
     params.permit(:item_code, :image_url, :url, :name)
