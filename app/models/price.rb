@@ -2,6 +2,8 @@ class Price < ApplicationRecord
   belongs_to :saveitem
   belongs_to :user
   validates :price, presence: true
+  validates :user_id, presence: true
+  validates :saveitem_id, presence: true
 
   def self.save_price(user, item, price)
     user.prices.create(
@@ -14,7 +16,7 @@ class Price < ApplicationRecord
     prices = self.where(user: user, saveitem: item)
     datas = []
     prices.each do |price|
-      data = ["#{price.created_at.strftime('%Y/%m/%d')}",price.price]
+      data = ["#{price.created_at.strftime('%Y/%m/%d')}", price.price]
       datas.push(data)
     end
     return datas

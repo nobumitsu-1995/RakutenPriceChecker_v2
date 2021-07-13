@@ -5,5 +5,6 @@ class Saveitem < ApplicationRecord
   validates :image_url, presence: true
   validates :url, presence: true
   validates :name, presence: true
+  validates :user_id, presence: true
 
 end

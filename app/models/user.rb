@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :name, presence: true
-  validates :uid, presence: true
+  validates :uid, presence: true, uniqueness: true
   has_many :saveitems, dependent: :delete_all
   has_many :prices, dependent: :delete_all
 
