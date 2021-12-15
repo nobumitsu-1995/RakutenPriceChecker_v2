@@ -12,7 +12,7 @@
 ## データベース設計について
 データベースの設計に関しては以下のER図の通りとなります。
 
-<img width="800" alt="ER" src="./public/ER.png">
+<img width="800" alt="ER" src="./public/image/RPC_ER.png">
 
 ## 使用した技術スタック
 Bootstrap,　Ruby on Rails, PostgreSQL, Heroku, Heroku Scheduler, Google API, Rakuten API
