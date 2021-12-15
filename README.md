@@ -1,24 +1,25 @@
-# README
+# RakutenPriceChecker_v2について
+本アプリケーションはAPIを利用した開発を学ぶために作成したWebアプリです。楽天市場に出品されている商品を検索することができ、商品情報を保存することで価格の推移を自動でグラフ化することができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- [アプリケーションURL](https://rakutenpricechecker.herokuapp.com/)
 
-Things you may want to cover:
+## 実装機能について
+実装されている機能に関しては以下のようになっています。
+- Googleのアカウントを利用したログイン機能。
+- 楽天市場に出品されている商品情報を取得、保存する機能。
+- 保存した商品の価格を1日ごとにデータベースに自動で保存し価格推移グラフを作成する機能。
 
-* Ruby version
+## データベース設計について
+データベースの設計に関しては以下のER図の通りとなります。
 
-* System dependencies
+<img width="800" alt="ER" src="./public/ER.png">
 
-* Configuration
+## 使用した技術スタック
+Bootstrap,　Ruby on Rails, PostgreSQL, Heroku, Heroku Scheduler, Google API, Rakuten API
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用している主なgemについて
+- Rspec：　Railsの代表的なテストツールの一つ。単体テスト、統合テストを実行するために使用しました。
+- Factory Bot：　テストのサンプルデータを簡単に作成することができるgem。
+- omniauth-google-oauth2：　google認証機能を使用したログイン機能を実装するためのgem。
+- rakuten_web_service：　Rakuten APIを使用するためのgem。
+- chartkick：　グラフを描画するためのgem。
