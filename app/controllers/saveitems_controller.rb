@@ -19,7 +19,7 @@ class SaveitemsController < ApplicationController
   end
 
   def destroy
-    @saveitem = current_user.saveitem.find(params[:id])
+    @saveitem = current_user.saveitems.find(params[:id])
     @saveitem.destroy
     redirect_to saveitems_path, notice: "商品情報を削除しました。"
   end
