@@ -6,7 +6,7 @@
 パスワード：Testuser2021
 <br>
 - [アプリケーションURL](https://rakutenpricechecker.herokuapp.com/)
-<img width="1000" alt="top画像" src="./public/images/rakutenpricechecker_top.png">
+<img width="1000" alt="top画像" src="./public/image/rakutenpricechecker_top.png">
 
 ## 実装機能について
 実装されている機能に関しては以下のようになっています。
