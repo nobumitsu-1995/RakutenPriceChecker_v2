@@ -1,7 +1,12 @@
 # RakutenPriceChecker_v2について
 本アプリケーションはAPIを利用した開発を学ぶために作成したWebアプリです。楽天市場に出品されている商品を検索することができ、商品情報を保存することで価格の推移を自動でグラフ化することができます。
-
+<br><br>
+以下の情報でログイン可能です。<br><br>
+メールアドレス：test.user.for.portfolio@gmail.com<br>
+パスワード：Testuser2021
+<br>
 - [アプリケーションURL](https://rakutenpricechecker.herokuapp.com/)
+<img width="1000" alt="top画像" src="./public/images/rakutenpricechecker_top.png">
 
 ## 実装機能について
 実装されている機能に関しては以下のようになっています。
