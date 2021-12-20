@@ -14,6 +14,31 @@
 - 楽天市場に出品されている商品情報を取得、保存する機能。
 - 保存した商品の価格を1日ごとにデータベースに自動で保存し価格推移グラフを作成する機能。
 
+1. Googleのアカウントを利用したログイン機能。
+2. 楽天市場に出品されている商品情報を取得、保存する機能。
+3. 保存した商品の価格を1日ごとにデータベースに自動で保存し価格推移グラフを作成する機能。
+以下のようなrakeタスクを作成しHeroku Schedulerで毎朝５時に実行するように設定しました。
+```ruby:/lib/tasks/scheduler.rake 
+task :pricerecord_create => :environment do
+  items = Saveitem.all
+# 登録されている全ての商品に対して以下の処理をする。
+  items.each do |item|
+# 商品が削除されている場合は以下の処理は実行されない。
+# 商品の価格情報をAPIで取得する。
+    if itemprice = RakutenWebService::Ichiba::Item.search(itemCode: item.item_code).first['itemPrice']
+      user = item.user
+# 取得した価格情報をPriceテーブルに保存する。
+      price = Price.create(
+        saveitem: item,
+        user: user,
+        price: itemprice
+      )
+      puts price
+    end
+  end
+end
+```
+
 ## データベース設計について
 データベースの設計に関しては以下のER図の通りとなります。
 
