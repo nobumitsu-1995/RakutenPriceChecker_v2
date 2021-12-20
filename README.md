@@ -15,8 +15,12 @@
 - 保存した商品の価格を1日ごとにデータベースに自動で保存し価格推移グラフを作成する機能。
 
 1. Googleのアカウントを利用したログイン機能。
+![login](https://user-images.githubusercontent.com/70850598/146776149-e88e5d95-59b3-4879-99a7-9c4def1beff7.gif)
+
 2. 楽天市場に出品されている商品情報を取得、保存する機能。
-3. 保存した商品の価格を1日ごとにデータベースに自動で保存し価格推移グラフを作成する機能。
+![search](https://user-images.githubusercontent.com/70850598/146776218-9b0bd77e-29c1-4b20-951d-5ca25f204ad3.gif)
+
+3. 保存した商品の価格を1日ごとにデータベースに自動で保存し価格推移グラフを作成する機能。<br>
 以下のようなrakeタスクを作成しHeroku Schedulerで毎朝５時に実行するように設定しました。
 ```ruby:/lib/tasks/scheduler.rake 
 task :pricerecord_create => :environment do
@@ -38,6 +42,7 @@ task :pricerecord_create => :environment do
   end
 end
 ```
+![price](https://user-images.githubusercontent.com/70850598/146776049-3e1a0327-9da2-443b-b545-d0c6fda98f23.gif)
 
 ## データベース設計について
 データベースの設計に関しては以下のER図の通りとなります。
